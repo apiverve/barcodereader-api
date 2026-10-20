@@ -1,0 +1,124 @@
+openapi: 3.0.4
+info:
+  title: Barcode Reader
+  description: >-
+    Barcode Reader decodes 1D barcodes from an uploaded image or an image URL,
+    including EAN-13, EAN-8, UPC-A, UPC-E, Code 128, Code 39, Code 93, ITF,
+    Codabar and GS1 DataBar. It returns the decoded value and the symbology.
+    Paid plans add the GTIN, the barcode's orientation and corners, and every
+    barcode found in the image.
+  termsOfService: https://apiverve.com/terms/
+  contact:
+    name: APIVerve Support
+    email: hello@apiverve.com
+    url: https://apiverve.com/contact
+  version: 1.0.0
+externalDocs:
+  description: Learn more about APIVerve
+  url: https://docs.apiverve.com?utm_source=openapi
+servers:
+  - url: https://api.apiverve.com/
+paths:
+  /v1/barcodereader:
+    post:
+      summary: Barcode Reader
+      description: Decode the 1D barcode in an uploaded image or an image URL
+      operationId: barcodereader
+      parameters: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: status
+                  error:
+                    type: string
+                    description: error
+                  data:
+                    type: object
+                    description: data
+              example:
+                status: ok
+                error: null
+                data:
+                  text: '8480010092271'
+                  format: EAN-13
+                  isRetail: true
+                  gtin: '8480010092271'
+                  orientation: 0
+                  position:
+                    topLeft:
+                      x: 565
+                      'y': 366
+                    topRight:
+                      x: 1132
+                      'y': 366
+                    bottomRight:
+                      x: 1145
+                      'y': 734
+                    bottomLeft:
+                      x: 558
+                      'y': 734
+                  barcodeCount: 1
+                  barcodes:
+                    - text: '8480010092271'
+                      format: EAN-13
+                      gtin: '8480010092271'
+                      orientation: 0
+                      position:
+                        topLeft:
+                          x: 565
+                          'y': 366
+                        topRight:
+                          x: 1132
+                          'y': 366
+                        bottomRight:
+                          x: 1145
+                          'y': 734
+                        bottomLeft:
+                          x: 558
+                          'y': 734
+        '401':
+          description: Your request was not authorized, or your API Key was invalid
+        '404':
+          description: Requested resource was not found
+        '500':
+          description: A server error has occurred, try again later
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+                  format: binary
+                  description: >-
+                    File to upload (accepted: .jpg, .jpeg, .png, .gif, .webp,
+                    .bmp, max 10MB)
+                  x-acceptedTypes:
+                    - .jpg
+                    - .jpeg
+                    - .png
+                    - .gif
+                    - .webp
+                    - .bmp
+                  x-maxSizeMB: 10
+              required:
+                - image
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
+security:
+  - api_key: []
+sampleRequest:
+  image: https://raw.githubusercontent.com/zxing/zxing/master/core/src/test/resources/blackbox/ean13-1/2.png
