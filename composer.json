@@ -1,0 +1,49 @@
+{
+    "name": "apiverve/barcodereader",
+    "description": "Barcode Reader decodes 1D barcodes from an uploaded image or an image URL, including EAN-13, EAN-8, UPC-A, UPC-E, Code 128, Code 39, Code 93, ITF, Codabar and GS1 DataBar. It returns the decoded value and the symbology. Paid plans add the GTIN, the barcode's orientation and corners, and every barcode found in the image.",
+    "version": "1.2.2",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "APIVerve",
+            "email": "hello@apiverve.com",
+            "homepage": "https://apiverve.com"
+        }
+    ],
+    "keywords": [
+        "api",
+        "apiverve",
+        "barcodereader",
+        "barcode reader api",
+        "barcode scanner api",
+        "decode barcode from image",
+        "ean-13 barcode reader",
+        "upc barcode scanner api"
+    ],
+    "homepage": "https://apiverve.com/marketplace/barcodereader?utm_source=php&utm_medium=referral&utm_content=homepage",
+    "support": {
+        "email": "hello@apiverve.com",
+        "docs": "https://docs.apiverve.com/ref/barcodereader",
+        "source": "https://github.com/apiverve/barcodereader-API/tree/main/php"
+    },
+    "require": {
+        "php": ">=7.4",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "APIVerve\\Barcodereader\\": "php/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "APIVerve\\Barcodereader\\Tests\\": "php/tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
