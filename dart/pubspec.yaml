@@ -1,0 +1,16 @@
+name: apiverve_barcodereader
+description: "Barcode Reader decodes 1D barcodes from an uploaded image or an image URL, including EAN-13, EAN-8, UPC-A, UPC-E, Code 128, Code 39, Code 93, ITF, Codabar and GS1 DataBar. It returns the decoded value and the symbology. Paid plans add the GTIN, the barcode's orientation and corners, and every barcode found in the image."
+version: 1.2.3
+homepage: https://apiverve.com/marketplace/barcodereader?utm_source=dart&utm_medium=referral&utm_content=homepage
+repository: https://github.com/apiverve/barcodereader-api/tree/main/dart
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  http: ^1.1.0
+  http_parser: ^4.0.0
+
+dev_dependencies:
+  lints: ^3.0.0
+  test: ^1.24.0
